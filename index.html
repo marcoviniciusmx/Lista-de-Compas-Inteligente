@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Compras Inteligente</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header id="header">
+
+            <section id="header-left">
+                <div class="tool-bar">
+                    <img src="./assets/menu.png" alt="tool bar">
+                </div>
+                <h2 class="text-tool-bar">Shopping List</h2>
+            </section>
+
+            <section id="header-right">
+                <div class="profile">
+                    <img src="./assets/man-with-short-hair-profile-avatar.png" alt="image profile"
+                        class="profile-image">
+                </div>
+            </section>
+
+        </header>
+
+        <main id="main">
+
+            <h1 class="title">Lista de Compras Inteligente</h1>
+            <p class="subtitle">Organize seus itens por categoria e acompanhe o que já foi comprado.</p>
+
+            <section id="cards">
+                <div class="card">
+                    <h4 class="card-title">Total de itens</h4>
+                    <p class="card-number total-items">0</p>
+                </div>
+
+                <div class="card">
+                    <h4 class="card-title">Total de unidades</h4>
+                    <p class="card-number total-units">0</p>
+                </div>
+
+                <div class="card">
+                    <h4 class="card-title-green">Itens comprados</h4>
+                    <p class="purchased-items">0</p>
+                </div>
+
+                <div class="card">
+                    <h4 class="card-title">Itens pendentes</h4>
+                    <p class="card-number pending-items">0</p>
+                </div>
+            </section>
+
+            <section id="container">
+
+                <section id="container-left">
+                    <h3>Novo Item</h3>
+
+                    <div class="input-items-name">
+                        <p class="description">Nome do Item</p>
+                        <input type="text" placeholder="Ex: Arroz" required>
+                    </div>
+
+                    <div class="inputs-specify-item">
+                        <div class="amount">
+                            <p class="description">Quantidade</p>
+                            <input type="number" placeholder='0'>
+                        </div>
+
+                        <div class="category">
+                            <p class="description">Categoria</p>
+                            <select name="alimentos" id="select">
+                                <option value="Alimentos">Alimentos</option>
+                                <option value="Limpeza">Limpeza</option>
+                                <option value="Higiene">Higiene</option>
+                                <option value="Bebidas">Bebidas</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="container-right">
+                    <div class="filters">
+                        <div class="filters-left">
+                            <button type="button" class="all-purchases">Todas</button>
+                            <button type="button" class="foods">Alimentos</button>
+                            <button type="button" class="cleaning">Limpeza</button>
+                            <button type="button" class="hygiene">Higiene</button>
+                        </div>
+
+                        <div class="filters-right">
+                            <p class="all-filter-button">Todos</p>
+                            <p class="all-pending-button">Pendentes</p>
+                        </div>
+                    </div>
+
+                    <div class="items">
+                        <div class="card-items">
+                            <div class="card-items-left">
+                                <img src="#" alt="img item">
+                                
+                                <div class="content-items">
+                                    <h3 class="title-items">Arroz</h3>
+                                    <p class="amount-item"><span class="item-count">2</span> unidades <span class="lttle-ball-card">•</span> <span class="category-color">Alimentos</span></p>
+                                </div>
+                            </div>
+
+                            <div class="card-items-right">
+                                <img src="#" alt="correct">
+                                <img src="#" alt="bin">
+                            </div>
+                        </div>
+
+                        <div class="card-items-purchased">
+                            <div class="card-items-left-purchased">
+                                <img src="#" alt="img item">
+                                
+                                <div class="content-items-purchased">
+                                    <h3 class="title-items-purchased">Detergente</h3>
+                                    <p class="amount-item-purchased"><span class="item-count-purchased">1</span> unidade <span class="lttle-ball-card">•</span> <span class="category-color">Limpeza</span></p>
+                                </div>
+                            </div>
+
+                            <div class="card-items-right">
+                                <p class="status-item-purchased">Comprado</p>
+                                <img src="#" alt="bin">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
