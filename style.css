@@ -5,9 +5,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html, body {
+html,
+body {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    background-color: rgb(224, 224, 224);
 }
 
 #wrapper {
@@ -20,8 +22,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid rgb(224, 224, 224);
+    padding: 10px 20px;
+    border-bottom: 1px solid rgb(194, 194, 194);
     text-align: center;
 }
 
@@ -58,11 +60,422 @@ header {
     align-items: center;
     justify-content: center;
     background-color: rgb(146, 146, 146);
-    padding: 6px;
+    padding: 4px;
     border-radius: 999px;
     border: 2px solid rgb(2, 154, 255);
 }
 
 #header-right img {
+    width: 22px;
+}
+
+main {
+    width: 70%;
+    max-width: 1200px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 30px auto;
+}
+
+main .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: rgb(53, 53, 53);
+}
+
+main .subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(107, 107, 107);
+}
+
+#cards {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+#cards .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(192, 192, 192);
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+#cards .card .card-title {
+    font-size: .8rem;
+    margin-bottom: 4px;
+    color: rgb(82, 82, 82);
+}
+
+#cards .card .card-number {
+    font-size: 1.2rem;
+    color: blue;
+    font-weight: bold;
+}
+
+#cards .card .card-title-green {
+    font-size: .8rem;
+    margin-bottom: 4px;
+    color: green;
+}
+
+#cards .card .purchased-items {
+    color: green;
+    font-weight: bold;
+}
+
+#cards .card .pending-items {
+    color: red;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#container #container-left {
+    width: 30%;
+    border: 1px solid rgb(192, 192, 192);
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+#container #container-left h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.items-name {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.items-name .description,
+.amount .description,
+.category .description {
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgb(80, 80, 80);
+}
+
+.items-name .input-items-name,
+.amount .input-amount {
+    outline-color: rgb(0, 132, 255);
+    padding: 9px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.inputs-specify-item {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+}
+
+#select {
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    outline-color: rgb(0, 132, 255);
+
+}
+
+.add-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.add-items button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(0, 81, 255);
+    color: #FFFF;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#container #container-right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.filters-left {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.filters-left button {
+    padding: 8px 20px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.foods:hover,
+.cleaning:hover,
+.hygiene:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.filters-left .active {
+    background-color: rgb(0, 81, 255);
+    color: #FFFF;
+    font-weight: 500;
+}
+
+.filters-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(201, 201, 201);
+    border-radius: 10px;
+}
+
+.filters-right button {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: rgb(58, 58, 58);
+    font-weight: 600;
+}
+
+.filters-right .all-filter-button {
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filters-right .all-pending-button {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer
+}
+
+.filters-right .active-button-filter-right {
+    background-color: #FFFF;
+    color: blue;
+}
+
+.items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
+    background-color: #FFF;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.card-items-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.img-card-left {
+    display: flex;
+    background-color: rgb(55, 140, 250);
+    padding: 10px;
+    border-radius: 999px;
+}
+
+.card-items-left img {
     width: 25px;
+}
+
+.card-items-left .content-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-items-left .content-items h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.card-items-left .content-items .amount-item {
+    font-size: 1.1rem;
+    color: rgb(85, 85, 85);
+}
+
+.card-items-left .content-items .amount-item .lttle-ball-card {
+    text-align: center;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.card-items-left .content-items .amount-item .category-color {
+    color: blue;
+}
+
+.card-items-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    gap: 20px;
+}
+
+.img-correct-icon,
+.img-bin-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-items-right .img-correct,
+.card-items-right .img-bin {
+    width: 20px;
+}
+
+.img-correct,
+.img-bin {
+    cursor: pointer;
+}
+
+
+.card-items-purchased {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #98e4a1;
+    border-radius: 10px;
+    background-color: #def7e1;
+    padding: 15px;
+    margin-top: 10px;
+    opacity: .6;
+}
+
+.card-items-left-purchased {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.img-card-items-left-purchased {
+    display: flex;
+    background-color: rgb(55, 250, 130);
+    padding: 10px;
+    border-radius: 999px;
+}
+
+.img-card-items-left-purchased img {
+    width: 25px;
+}
+
+.card-items-left-purchased .content-items-purchased {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-items-left-purchased .content-items-purchased h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-decoration: line-through;
+}
+
+.card-items-left-purchased .content-items-purchased .amount-item-purchased {
+    font-size: 1.1rem;
+    color: rgb(85, 85, 85);
+}
+
+.card-items-left-purchased .content-items-purchased .amount-item-purchased .lttle-ball-card {
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+}
+
+.card-items-left-purchased .content-items-purchased .amount-item-purchased .category-color {
+    color: rgb(55, 250, 130);
+    font-weight: 600;
+}
+
+.card-items-right-purchased {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    gap: 20px;
+}
+
+.card-items-right-purchased .status-item-purchased {
+    font-size: 1.2rem;
+    color: green;
+    font-weight: 600;
+    background-color: rgb(165, 255, 165);
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.img-bin-purchased {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-bin-purchased img {
+    width: 20px;
+    cursor: pointer;
 }

@@ -62,15 +62,15 @@
                 <section id="container-left">
                     <h3>Novo Item</h3>
 
-                    <div class="input-items-name">
+                    <div class="items-name">
                         <p class="description">Nome do Item</p>
-                        <input type="text" placeholder="Ex: Arroz" required>
+                        <input type="text" placeholder="Ex: Arroz" required class="input-items-name">
                     </div>
 
                     <div class="inputs-specify-item">
                         <div class="amount">
                             <p class="description">Quantidade</p>
-                            <input type="number" placeholder='0'>
+                            <input type="number" placeholder='0' class="input-amount">
                         </div>
 
                         <div class="category">
@@ -84,53 +84,73 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="add-items">
+                        <button class="button-add-items" type="button">Adicionar item</button>
+                    </div>
                 </section>
 
                 <section id="container-right">
                     <div class="filters">
                         <div class="filters-left">
-                            <button type="button" class="all-purchases">Todas</button>
+                            <button type="button" class="all-purchases active">Todas</button>
                             <button type="button" class="foods">Alimentos</button>
                             <button type="button" class="cleaning">Limpeza</button>
                             <button type="button" class="hygiene">Higiene</button>
                         </div>
 
                         <div class="filters-right">
-                            <p class="all-filter-button">Todos</p>
-                            <p class="all-pending-button">Pendentes</p>
+                            <button type="button" class="all-filter-button active-button-filter-right">Todos</button>
+                            <button type="button" class="all-pending-button">Pendentes</button>
                         </div>
                     </div>
 
                     <div class="items">
                         <div class="card-items">
                             <div class="card-items-left">
-                                <img src="#" alt="img item">
-                                
+                                <div class="img-card-left">
+                                    <img src="./assets/talheres.png" alt="img item">
+                                </div>
+
                                 <div class="content-items">
                                     <h3 class="title-items">Arroz</h3>
-                                    <p class="amount-item"><span class="item-count">2</span> unidades <span class="lttle-ball-card">•</span> <span class="category-color">Alimentos</span></p>
+                                    <p class="amount-item"><span class="item-count">2</span> unidades <span
+                                            class="lttle-ball-card">•</span> <span
+                                            class="category-color">Alimentos</span></p>
                                 </div>
                             </div>
 
                             <div class="card-items-right">
-                                <img src="#" alt="correct">
-                                <img src="#" alt="bin">
+                                <div class="img-correct-icon">
+                                    <img src="./assets/check-mark.png" alt="correct" class="img-correct">
+                                </div>
+
+                                <div class="img-bin-icon">
+                                    <img src="./assets/excluir (1).png" alt="bin" class="img-bin">
+                                </div>
                             </div>
                         </div>
 
                         <div class="card-items-purchased">
                             <div class="card-items-left-purchased">
-                                <img src="#" alt="img item">
-                                
+                                <div class="img-card-items-left-purchased">
+                                    <img src="./assets/desentupidor.png" alt="img item">
+                                </div>
+
                                 <div class="content-items-purchased">
                                     <h3 class="title-items-purchased">Detergente</h3>
-                                    <p class="amount-item-purchased"><span class="item-count-purchased">1</span> unidade <span class="lttle-ball-card">•</span> <span class="category-color">Limpeza</span></p>
+                                    <p class="amount-item-purchased"><span class="item-count-purchased">1</span> unidade
+                                        <span class="lttle-ball-card">•</span> <span
+                                            class="category-color">Limpeza</span>
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="card-items-right">
+                            <div class="card-items-right-purchased">
                                 <p class="status-item-purchased">Comprado</p>
-                                <img src="#" alt="bin">
+                                <div class="img-bin-purchased">
+                                    <img src="./assets/excluir (1).png" alt="bin">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,9 +158,6 @@
             </section>
         </main>
     </div>
-
-
-
     <script src="./script.js"></script>
 
 </body>
