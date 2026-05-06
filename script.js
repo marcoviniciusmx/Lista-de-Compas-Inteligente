@@ -17,10 +17,12 @@ const filterAllItems = document.querySelector('.all-purchases')
 const filterItemsFoods = document.querySelector('.foods')
 const filterItemsCleaning = document.querySelector('.cleaning')
 const filterItemsHygiene = document.querySelector('.hygiene')
+let categoryActive = 'Todas'
 
 // pegando filtros (da direita) de status dos items
-const filterAllPurchasedItems = document.querySelector('.all-filter-button')
+const filterAllFilterItems = document.querySelector('.all-filter-button')
 const filterAllPendingItems = document.querySelector('.all-pending-button')
+let filterItemsActive = 'Todos'
 
 // mostrar os cards
 let showCards = document.querySelector('.items')
@@ -37,6 +39,56 @@ if (showDataRestore !== null) {
 
 renderCard()
 
+filterAllItems.addEventListener('click', () => {
+    categoryActive = 'Todas'
+    filterItemsFoods.classList.remove('active')
+    filterItemsCleaning.classList.remove('active')
+    filterItemsHygiene.classList.remove('active')
+    filterAllItems.classList.add('active')
+    renderCard()
+})
+
+
+filterItemsFoods.addEventListener('click', () => {
+    categoryActive = 'Alimentos'
+    filterAllItems.classList.remove('active')
+    filterItemsCleaning.classList.remove('active')
+    filterItemsHygiene.classList.remove('active')
+    filterItemsFoods.classList.add('active')
+    renderCard()
+})
+
+filterItemsCleaning.addEventListener('click', () => {
+    categoryActive = 'Limpeza'
+    filterAllItems.classList.remove('active')
+    filterItemsFoods.classList.remove('active')
+    filterItemsHygiene.classList.remove('active')
+    filterItemsCleaning.classList.add('active')
+    renderCard()
+})
+
+filterItemsHygiene.addEventListener('click', () => {
+    categoryActive = 'Higiene'
+    filterAllItems.classList.remove('active')
+    filterItemsFoods.classList.remove('active')
+    filterItemsCleaning.classList.remove('active')
+    filterItemsHygiene.classList.add('active')
+    renderCard()
+})
+
+filterAllFilterItems.addEventListener('click', () => {
+    filterItemsActive = 'Todos'
+    filterAllFilterItems.classList.add('active-button-filter-right')
+    filterAllPendingItems.classList.remove('active-button-filter-right')
+    renderCard()
+})
+
+filterAllPendingItems.addEventListener('click', () => {
+    filterItemsActive = 'Pendentes'
+    filterAllFilterItems.classList.remove('active-button-filter-right')
+    filterAllPendingItems.classList.add('active-button-filter-right')
+    renderCard()
+})
 
 
 
@@ -88,7 +140,17 @@ function renderCard() {
     let purchasedItemsCount = 0
     let pendingItemsCount = 0
 
-    products.forEach((product, index) => {
+    let productsToShow = products
+
+    if (categoryActive !== 'Todas') {
+        productsToShow = productsToShow.filter((product) => product.category === categoryActive)
+    }
+
+    if (filterItemsActive === 'Pendentes') {
+        productsToShow = productsToShow.filter((product) => product.purchased === false)
+    }
+
+    productsToShow.forEach((product, index) => {
 
         if (product.amount) {
             totalUnitsCount += product.amount
@@ -247,15 +309,15 @@ function renderCard() {
             showCards.append(cardItemsPurchased)
 
             // botão para apagar o produto comprado
-            imgBinPurchased.addEventListener('click', (index) => {
+            imgBinPurchased.addEventListener('click', () => {
                 products = products.filter((item) => item.id !== product.id)
                 saveProducts()
                 renderCard()
             })
-            
+
 
             return
-            
+
         }
     })
 
