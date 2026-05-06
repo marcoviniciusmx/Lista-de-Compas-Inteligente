@@ -28,6 +28,17 @@ let showCards = document.querySelector('.items')
 // array dos produtos
 let products = []
 
+//salvando
+const dataRestore = localStorage.getItem('products')
+const showDataRestore = JSON.parse(dataRestore)
+if (showDataRestore !== null) {
+    products = showDataRestore
+}
+
+renderCard()
+
+
+
 
 
 // função add item
@@ -36,6 +47,7 @@ buttonAddNewItem.addEventListener('click', () => {
     const rawValueInputAmount = inputAmount.value.trim()
     const valueInputAmount = Number(rawValueInputAmount)
     const valueSelect = selectCategory.value
+    let idProduct = Math.random()
 
     if (valueInputName === '' || valueInputName.length < 2) {
         alert('Nome é obrigatório e deve ter pelo menos 2 caracteres')
@@ -48,6 +60,7 @@ buttonAddNewItem.addEventListener('click', () => {
     }
 
     let newProject = {
+        id: idProduct,
         name: valueInputName,
         amount: valueInputAmount,
         category: valueSelect,
@@ -56,6 +69,7 @@ buttonAddNewItem.addEventListener('click', () => {
 
     products.push(newProject)
 
+    saveProducts()
     renderCard()
 
     inputItemsName.value = ''
@@ -70,12 +84,22 @@ buttonAddNewItem.addEventListener('click', () => {
 // função para gerar card
 function renderCard() {
     showCards.innerHTML = ''
-    let totalItemsCount = 0
     let totalUnitsCount = 0
     let purchasedItemsCount = 0
     let pendingItemsCount = 0
 
     products.forEach((product, index) => {
+
+        if (product.amount) {
+            totalUnitsCount += product.amount
+        }
+
+        if (product.purchased === true) {
+            purchasedItemsCount++
+        } else {
+            pendingItemsCount++
+        }
+
         if (product.purchased === false) {
             // criação do card que o item não foi comprado
             const cardItems = document.createElement('div')
@@ -147,15 +171,16 @@ function renderCard() {
             showCards.append(cardItems)
 
             // botão para colocar o item como comprado
-            imgCorrect.addEventListener('click', (index) => {
+            imgCorrect.addEventListener('click', () => {
                 product.purchased = true
+                saveProducts()
                 renderCard()
             })
 
             // botão para deletar o item
-            imgBin.addEventListener('click', () => {
-                products.splice(index, 1)
-                localStorage.setItem('products', JSON.stringify(products))
+            imgBin.addEventListener('click', (index) => {
+                products = products.filter((item) => item.id !== product.id)
+                saveProducts()
                 renderCard()
             })
 
@@ -163,6 +188,7 @@ function renderCard() {
         }
 
         if (product.purchased === true) {
+
             // criando cards dos comprados
             const cardItemsPurchased = document.createElement('div')
             cardItemsPurchased.classList.add('card-items-purchased')
@@ -220,14 +246,25 @@ function renderCard() {
 
             showCards.append(cardItemsPurchased)
 
-            // botão para apagar o produto
-            imgBinPurchased.addEventListener('click', () => {
-                products.splice(index, 1)
-                localStorage.setItem('products', JSON.stringify(products))
+            // botão para apagar o produto comprado
+            imgBinPurchased.addEventListener('click', (index) => {
+                products = products.filter((item) => item.id !== product.id)
+                saveProducts()
                 renderCard()
             })
+            
 
             return
+            
         }
     })
+
+    totalItems.textContent = products.length
+    totalUnits.textContent = totalUnitsCount
+    purchasedItems.textContent = purchasedItemsCount
+    pendingItems.textContent = pendingItemsCount
+}
+
+function saveProducts() {
+    localStorage.setItem('products', JSON.stringify(products))
 }
